@@ -12,7 +12,7 @@ def isNone(arr):
     if arr==None or arr==[]:
         arr=None
 
-@app.route("/chat",methods=['GET','POST'])
+@app.route("/word",methods=['GET','POST'])
 def chat():
     if request.method=='GET':
         return render_template('chatting.html')
@@ -54,7 +54,7 @@ def chat():
         else:
             lenV=len(syV)
         return render_template(
-            'chatting.html',
+            'word.html',
             data=word,
             phonetic=phonetic,
             defN=defN,
