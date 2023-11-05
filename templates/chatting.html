@@ -1,0 +1,56 @@
+<html>
+    <link rel= "stylesheet" type= "text/css" href= '{{ url_for("static",filename="styling.css") }}'>
+    <body>
+        <form method="POST" action="/chat">
+            <div id="word"><b>Give word:</b></div>
+            <input id="in" type="text" name="para">
+            <br>
+            <input id="but" type="submit" name="sub" value="submit">
+        </form>
+            <hr>
+            <h1>{{data}}
+                
+            </h1>
+            <b id="phone">
+                {%if phonetic!=None:%}
+                 {{phonetic}} 
+                {%endif%}
+            </b>
+            <br>
+            {%if mp3!=None:%}
+
+            <audio controls autoplay>
+                <source src="{{mp3}}" type="audio/ogg">
+            Your browser does not support the audio element.
+            </audio> 
+        {%endif%}
+            <hr>
+            
+            <p><b>part of speech:</b><i>Noun</i></p>
+            <p id="def"><b>defination:</b><i>{{defN}}</i></p>
+                {%if lenN!=0%}
+                    <p><b>synonyms:</b></p>
+
+                    {%for val in syN%}
+                        <u>{{val}}</u><br>
+                    
+                    {% endfor %}
+                    </p>
+                {%endif%}
+                <hr>
+            <p><b>part of speech:</b><i>Verb</i></p>
+                <p id="def"><b>defination:</b><i>{{defV}}</i></p>
+                {%if lenV!=0:%}
+                    <p><b>synonyms:</b></p>
+
+                    {%for val in syV%}
+                        <u>{{val}}</u><br>
+                        
+                    {% endfor %}
+                    </p>
+                {%endif%}
+                {{img}}
+                <img src="{{img}}"/>
+
+    </body>
+</html>

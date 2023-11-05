@@ -5,7 +5,7 @@ __pycache__/
 
 #my imp
 /imp
-
+/config.py
 # C extensions
 *.so
 
