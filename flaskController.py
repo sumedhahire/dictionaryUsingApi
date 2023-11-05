@@ -15,7 +15,9 @@ def isNone(arr):
 @app.route("/word",methods=['GET','POST'])
 def chat():
     if request.method=='GET':
-        return render_template('chatting.html')
+        return render_template('word.html')
+    elif request.form["para"]=="":
+        return render_template('word.html',data="")
     else:
         url="https://api.dictionaryapi.dev/api/v2/entries/en/"+request.form["para"]
         res=requests.get(url=url)
