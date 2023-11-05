@@ -36,10 +36,11 @@ def chat():
         word=jObj[0]["word"]
         if 'phonetic' in jObj[0]:
             phonetic=jObj[0]["phonetic"]
-            if 'audio' in jObj[0]["phonetics"]:
-                mp3=jObj[0]["phonetics"][1]["audio"]
-            else:
-                mp3=None
+            mp3=jObj[0]["phonetics"][0]["audio"]
+            if jObj[0]["phonetics"][0]["audio"]=="":
+                mp3=jObj[0]["phonetics"][2]["audio"]
+            
+            
         else:
             phonetic=None
         defN=jObj[0]["meanings"][0]["definitions"][0]["definition"]
