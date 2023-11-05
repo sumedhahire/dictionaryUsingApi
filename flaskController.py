@@ -3,6 +3,9 @@ import requests
 import json
 import shutil
 import os
+#make this py file and give apikey and engine key
+import config
+
 app=Flask(__name__,template_folder="templates")
 
 def isNone(arr):
@@ -16,7 +19,7 @@ def chat():
     else:
         url="https://api.dictionaryapi.dev/api/v2/entries/en/"+request.form["para"]
         res=requests.get(url=url)
-        image="https://www.googleapis.com/customsearch/v1?q="+request.form["para"]+"&cx=f4588efa05b504002&searchType=image&key=AIzaSyBzr_NQcIKXM3JnkeMxW4lPwa0tdwkHCMY"
+        image="https://www.googleapis.com/customsearch/v1?q="+request.form["para"]+"&cx="+config.apiEngine+"&searchType=image&key="+config.apiKey
 
         resImg=requests.get(url=image)
 
