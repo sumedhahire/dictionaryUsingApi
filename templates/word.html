@@ -7,9 +7,10 @@
             <div id="word"><b>Give word:</b></div>
             <input id="in" type="text" name="para">
             <br>
-            <input id="but" type="submit" name="sub" value="submit">
-
+            <input id="but" type="submit" onclick="emptyCheck()" name="sub" value="submit">
+            <input id="but" type="submit" onclick="reset()" name="sub" value="reset">
         </form>
+        <h2 id="info"></h2>
         {%if data!="":%}
                 <hr>
                 <h1>{{data}}
