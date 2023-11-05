@@ -9,6 +9,10 @@
             <br>
             <input id="but" type="submit" onclick="emptyCheck()" name="sub" value="submit">
             <input id="but" type="submit" onclick="reset()" name="sub" value="reset">
+            <br>
+            {%if data!="":%}
+                <img src="{{img}}"/>
+            {%endif%}
         </form>
         <h2 id="info"></h2>
         {%if data!="":%}
@@ -54,8 +58,7 @@
                         {% endfor %}
                         </p>
                     {%endif%}
-                    {{img}}
-                    <img src="{{img}}"/>
+                    
         {%endif%}
 
     </body>
