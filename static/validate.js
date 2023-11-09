@@ -1,7 +1,9 @@
 function emptyCheck(){
-    var value=document.getElementById("para").value
-    if(value==""){
+    var val=document.getElementById("para").value;
+    console.log(val)
+    if(val==""){
         document.getElementById("info").innerHTML="Text cannot be empty"
+        window.history.forward(-1);
     }
 }
 

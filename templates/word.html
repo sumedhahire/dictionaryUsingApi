@@ -1,11 +1,12 @@
+<!DOCTYPE html>
 <html>
     <link rel= "stylesheet" type= "text/css" href= '{{ url_for("static",filename="styling.css") }}'>
     <script src='{{url_for("static", filename="validate.js")}}'></script>
 
     <body>
-        <form method="POST" action="/word">
+        <form method="POST" action="/word" >
             <div id="word"><b>Give word:</b></div>
-            <input id="in" type="text" name="para">
+            <input type="text" name="para" id="para">
             <br>
             <input id="but" type="submit" onclick="emptyCheck()" name="sub" value="submit">
             <input id="but" type="submit" onclick="reset()" name="sub" value="reset">

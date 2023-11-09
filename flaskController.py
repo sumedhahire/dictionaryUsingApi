@@ -3,6 +3,7 @@ import requests
 import json
 import shutil
 import os
+
 #make this py file and give apikey and engine key
 import config
 
@@ -34,13 +35,18 @@ def chat():
         
         jObj=res.json()
         word=jObj[0]["word"]
-        if 'phonetic' in jObj[0]:
+        mp3=""
+        if 'phonetics' in jObj[0]:
+            #print(len(jObj[0]["phonetic"]))
+            for val in jObj[0]["phonetics"]:
+                print(val["audio"])
+                if val["audio"]!="":
+                    mp3=val["audio"]
+                    break
             phonetic=jObj[0]["phonetic"]
-            mp3=jObj[0]["phonetics"][0]["audio"]
-            if jObj[0]["phonetics"][0]["audio"]=="":
-                mp3=jObj[0]["phonetics"][2]["audio"]
-            
-            
+            # mp3=jObj[0]["phonetics"][0]["audio"]
+            # if jObj[0]["phonetics"][0]["audio"]=="":
+            #     mp3=jObj[0]["phonetics"][2]["audio"]
         else:
             phonetic=None
         defN=jObj[0]["meanings"][0]["definitions"][0]["definition"]
