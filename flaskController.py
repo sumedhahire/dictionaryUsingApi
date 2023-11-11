@@ -9,10 +9,6 @@ import config
 
 app=Flask(__name__,template_folder="templates")
 
-def isNone(arr):
-    if arr==None or arr==[]:
-        arr=None
-
 @app.route("/word",methods=['GET','POST'])
 def chat():
     if request.method=='GET':
