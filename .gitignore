@@ -6,6 +6,8 @@ __pycache__/
 #my imp
 /imp
 /config.py
+/templates/profile.html
+/static/profileCss.css
 # C extensions
 *.so
 
