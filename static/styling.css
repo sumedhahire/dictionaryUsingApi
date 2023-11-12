@@ -6,6 +6,17 @@ body{
 
     /* background-image: linear-gradient(to right, #00b4db, #0083b0); */
 }
+
+#profilePic{
+    border-radius: 50%;
+    width: 70px;
+}
+
+#pro{
+    right:0px;
+    position: absolute;
+}
+
 #word{
     font-size: large;
     font-family: 'Courier New', Courier, monospace;

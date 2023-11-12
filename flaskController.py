@@ -45,16 +45,18 @@ def chat():
             #     mp3=jObj[0]["phonetics"][2]["audio"]
         else:
             phonetic=None
-        defN=jObj[0]["meanings"][0]["definitions"][0]["definition"]
-        
-        syN=jObj[0]["meanings"][0]["synonyms"]
-        defV=jObj[0]["meanings"][1]["definitions"][0]["definition"]
-        syV=jObj[0]["meanings"][1]["synonyms"]
-        if len(syN)==[]:
+        defN=syN=defV=syV=None
+        if 'meanings' in jObj[0]:
+            defN=jObj[0]["meanings"][0]["definition"]
+            print(defN)        
+            syN=jObj[0]["meanings"][0]["synonyms"]
+            defV=jObj[0]["meanings"][1]["definitions"][0]["definition"]
+            syV=jObj[0]["meanings"][1]["synonyms"]
+        if len(syN)==None:
             lenN=0
         else:
             lenN=len(syN)
-        if len(syV)==[]:
+        if len(syV)==None:
             lenV=0
         else:
             lenV=len(syV)
@@ -72,5 +74,10 @@ def chat():
             img=img
             )
 
+
+@app.route("/")
+@app.route("/project")
+def project():
+    return render_template("profile.html")
 
 app.run(port=8081,debug=True)
