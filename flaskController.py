@@ -76,8 +76,7 @@ def chat():
 
 
 @app.route("/")
-@app.route("/project")
-def project():
-    return render_template("profile.html")
+def reHome():
+    return redirect("/word")
 
 app.run(port=8081,debug=True)
