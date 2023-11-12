@@ -3,11 +3,13 @@ import requests
 import json
 import shutil
 import os
-
+from werkzeug.exceptions import HTTPException
 #make this py file and give apikey and engine key
 import config
 
 app=Flask(__name__,template_folder="templates")
+
+
 
 @app.route("/word",methods=['GET','POST'])
 def chat():
@@ -47,7 +49,7 @@ def chat():
             phonetic=None
         defN=syN=defV=syV=None
         if 'meanings' in jObj[0]:
-            defN=jObj[0]["meanings"][0]["definition"]
+            defN=jObj[0]["meanings"][0]["definitions"][0]["definition"]
             print(defN)        
             syN=jObj[0]["meanings"][0]["synonyms"]
             defV=jObj[0]["meanings"][1]["definitions"][0]["definition"]
@@ -78,5 +80,6 @@ def chat():
 @app.route("/")
 def reHome():
     return redirect("/word")
+
 
 app.run(port=8081,debug=True)
