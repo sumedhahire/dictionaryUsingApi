@@ -4,11 +4,14 @@ import json
 import shutil
 import os
 from werkzeug.exceptions import HTTPException
+import pastWords
 #make this py file and give apikey and engine key
 import config
 
-app=Flask(__name__,template_folder="templates")
 
+
+app=Flask(__name__,template_folder="templates")
+q=pastWords.Qclass(5)
 
 
 @app.route("/word",methods=['GET','POST'])
@@ -31,8 +34,11 @@ def chat():
         else:
             print("error:",resImg.status_code,resImg.text)
         
+
         jObj=res.json()
         word=jObj[0]["word"]
+        q.put(word)
+        
         mp3=""
         if 'phonetics' in jObj[0]:
             #print(len(jObj[0]["phonetic"]))
@@ -64,6 +70,7 @@ def chat():
             lenV=len(syV)
         return render_template(
             'word.html',
+            past=q.get(),
             data=word,
             phonetic=phonetic,
             defN=defN,
