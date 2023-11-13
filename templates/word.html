@@ -13,6 +13,22 @@
                             </a>
                             </acronym>
             </span>
+            {%if past!=[]:%}
+                <span id="past">
+                        <table>
+                            <tr>
+                                <th>recent words</th>
+                            </tr>
+                            
+                            {%for val in past%}
+                                <tr>
+                                    <td>{{val}}</td>
+                                </tr>
+                            {%endfor%}
+                            
+                        </table>
+                    </span>
+            {%endif%}
             <input type="text" name="para" id="para">
             
             <br>
