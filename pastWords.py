@@ -4,6 +4,8 @@ class Qclass:
         self.Qobj=[]
         self.size=size
     def put(self,data):
+        # if data in self.Qobj:
+        #     return
         if len(self.Qobj)==self.size:
             self.Qobj.remove(self.Qobj[0])
         self.Qobj.append(data)
@@ -21,4 +23,7 @@ print(q.get())
 
 q.put(30)
 q.put(20)
+print(q.get())
+
+q.put(30)
 print(q.get())

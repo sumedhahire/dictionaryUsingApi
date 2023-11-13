@@ -37,7 +37,8 @@ def chat():
 
         jObj=res.json()
         word=jObj[0]["word"]
-        q.put(word)
+        if word not in q.get():
+            q.put(word)
         
         mp3=""
         if 'phonetics' in jObj[0]:
