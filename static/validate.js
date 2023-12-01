@@ -10,3 +10,7 @@ function emptyCheck(){
 function reset(){
     document.getElementById("para").value=""
 }
+
+function send(val){
+    document.getElementById("para").value=val;
+}

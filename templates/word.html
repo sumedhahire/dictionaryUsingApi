@@ -22,7 +22,7 @@
                             
                             {%for val in past%}
                                 <tr>
-                                    <td>{{val}}</td>
+                                    <td><button onclick="send('{{val}}')">{{val}}</button></td>
                                 </tr>
                             {%endfor%}
                             
